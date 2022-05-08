@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Development.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">politician-ratings</a> &gt; <a href="index.source.html" class="el_package">com.qart.ploticalparties.entity</a> &gt; <span class="el_source">Development.java</span></div><h1>Development.java</h1><pre class="source lang-java linenums">package com.qart.ploticalparties.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&quot;development&quot;)
+<span class="nc" id="L12">public class Development {</span>
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private Long developmentId;
+    
+    @Column
+    private Long politicalLeaderId;
+    
+    @Column
+    private String title;
+    
+    @Column
+    private String activity;
+    
+    @Column
+    private String budget;
+    
+    @Column
+    private String state;
+    
+    @Column
+    private Integer activityMonth;
+    
+    @Column
+	private Integer activityYear;
+
+	public Long getDevelopmentId() {
+<span class="nc" id="L41">		return developmentId;</span>
+	}
+
+	public void setDevelopmentId(Long developmentId) {
+<span class="nc" id="L45">		this.developmentId = developmentId;</span>
+<span class="nc" id="L46">	}</span>
+
+	public Long getPoliticalLeaderId() {
+<span class="nc" id="L49">		return politicalLeaderId;</span>
+	}
+
+	public void setPoliticalLeaderId(Long candidateId) {
+<span class="nc" id="L53">		this.politicalLeaderId = candidateId;</span>
+<span class="nc" id="L54">	}</span>
+
+	public String getTitle() {
+<span class="nc" id="L57">		return title;</span>
+	}
+
+	public void setTitle(String title) {
+<span class="nc" id="L61">		this.title = title;</span>
+<span class="nc" id="L62">	}</span>
+
+	public String getActivity() {
+<span class="nc" id="L65">		return activity;</span>
+	}
+
+	public void setActivity(String activity) {
+<span class="nc" id="L69">		this.activity = activity;</span>
+<span class="nc" id="L70">	}</span>
+
+	public String getBudget() {
+<span class="nc" id="L73">		return budget;</span>
+	}
+
+	public void setBudget(String budget) {
+<span class="nc" id="L77">		this.budget = budget;</span>
+<span class="nc" id="L78">	}</span>
+
+	public String getState() {
+<span class="nc" id="L81">		return state;</span>
+	}
+
+	public void setState(String state) {
+<span class="nc" id="L85">		this.state = state;</span>
+<span class="nc" id="L86">	}</span>
+
+	public Integer getActivityMonth() {
+<span class="nc" id="L89">		return activityMonth;</span>
+	}
+
+	public void setActivityMonth(Integer activityMonth) {
+<span class="nc" id="L93">		this.activityMonth = activityMonth;</span>
+<span class="nc" id="L94">	}</span>
+
+	public Integer getActivityYear() {
+<span class="nc" id="L97">		return activityYear;</span>
+	}
+
+	public void setActivityYear(Integer activityYear) {
+<span class="nc" id="L101">		this.activityYear = activityYear;</span>
+<span class="nc" id="L102">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

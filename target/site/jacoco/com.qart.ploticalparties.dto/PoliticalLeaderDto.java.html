@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PoliticalLeaderDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">politician-ratings</a> &gt; <a href="index.source.html" class="el_package">com.qart.ploticalparties.dto</a> &gt; <span class="el_source">PoliticalLeaderDto.java</span></div><h1>PoliticalLeaderDto.java</h1><pre class="source lang-java linenums">package com.qart.ploticalparties.dto;
+
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
+<span class="fc" id="L11">public class PoliticalLeaderDto {</span>
+    
+    @NotNull
+    private Long politicalLeaderId;
+    
+    @NotNull
+    private Long politicalPartyId;
+    
+
+    @NotEmpty
+    @NotNull
+     @Length(min = 5, max = 100)       
+    private String candidateName;
+    
+
+    @NotEmpty
+    @NotNull
+	 @Length(min = 5, max = 100)
+	private String candidateState;
+
+	public Long getPoliticalLeaderId() {
+<span class="fc" id="L32">		return politicalLeaderId;</span>
+	}
+
+	public void setPoliticalLeaderId(Long candidateId) {
+<span class="fc" id="L36">		this.politicalLeaderId = candidateId;</span>
+<span class="fc" id="L37">	}</span>
+
+	public Long getPoliticalPartyId() {
+<span class="fc" id="L40">		return politicalPartyId;</span>
+	}
+
+	public void setPoliticalPartyId(Long partyId) {
+<span class="fc" id="L44">		this.politicalPartyId = partyId;</span>
+<span class="fc" id="L45">	}</span>
+
+	public String getCandidateName() {
+<span class="fc" id="L48">		return candidateName;</span>
+	}
+
+	public void setCandidateName(String candidateName) {
+<span class="fc" id="L52">		this.candidateName = candidateName;</span>
+<span class="fc" id="L53">	}</span>
+
+	public String getCandidateState() {
+<span class="fc" id="L56">		return candidateState;</span>
+	}
+
+	public void setCandidateState(String candidateState) {
+<span class="fc" id="L60">		this.candidateState = candidateState;</span>
+<span class="fc" id="L61">	}</span>
+
+	@Override
+	public int hashCode() {
+<span class="nc" id="L65">		return Objects.hash(politicalLeaderId, candidateName, candidateState, politicalPartyId);</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">		if (this == obj)</span>
+<span class="nc" id="L71">			return true;</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">		if (obj == null)</span>
+<span class="nc" id="L73">			return false;</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="nc" id="L75">			return false;</span>
+<span class="fc" id="L76">		PoliticalLeaderDto other = (PoliticalLeaderDto) obj;</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">		return Objects.equals(politicalLeaderId, other.politicalLeaderId)</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">				&amp;&amp; Objects.equals(candidateName, other.candidateName)</span>
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">				&amp;&amp; Objects.equals(candidateState, other.candidateState)</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">				&amp;&amp; Objects.equals(politicalPartyId, other.politicalPartyId);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

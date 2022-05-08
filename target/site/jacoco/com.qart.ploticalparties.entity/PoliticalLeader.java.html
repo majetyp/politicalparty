@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PoliticalLeader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">politician-ratings</a> &gt; <a href="index.source.html" class="el_package">com.qart.ploticalparties.entity</a> &gt; <span class="el_source">PoliticalLeader.java</span></div><h1>PoliticalLeader.java</h1><pre class="source lang-java linenums">package com.qart.ploticalparties.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&quot;Politicalleader&quot;)
+<span class="nc" id="L12">public class PoliticalLeader {</span>
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private Long politicalLeaderId;
+    
+    @Column
+    private Long politicalPartyId;
+
+    @Column
+    private String candidateName;
+    
+    @Column
+	private String candidateState;
+
+	public Long getPoliticalLeaderId() {
+<span class="nc" id="L29">		return politicalLeaderId;</span>
+	}
+
+	public void setPoliticalLeaderId(Long candidateId) {
+<span class="nc" id="L33">		this.politicalLeaderId = candidateId;</span>
+<span class="nc" id="L34">	}</span>
+
+	public Long getPoliticalPartyId() {
+<span class="nc" id="L37">		return politicalPartyId;</span>
+	}
+
+	public void setPoliticalPartyId(Long partyId) {
+<span class="nc" id="L41">		this.politicalPartyId = partyId;</span>
+<span class="nc" id="L42">	}</span>
+
+	public String getCandidateName() {
+<span class="nc" id="L45">		return candidateName;</span>
+	}
+
+	public void setCandidateName(String candidateName) {
+<span class="nc" id="L49">		this.candidateName = candidateName;</span>
+<span class="nc" id="L50">	}</span>
+
+	public String getCandidateState() {
+<span class="nc" id="L53">		return candidateState;</span>
+	}
+
+	public void setCandidateState(String candidateState) {
+<span class="nc" id="L57">		this.candidateState = candidateState;</span>
+<span class="nc" id="L58">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

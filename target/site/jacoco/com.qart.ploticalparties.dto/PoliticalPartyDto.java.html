@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PoliticalPartyDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">politician-ratings</a> &gt; <a href="index.source.html" class="el_package">com.qart.ploticalparties.dto</a> &gt; <span class="el_source">PoliticalPartyDto.java</span></div><h1>PoliticalPartyDto.java</h1><pre class="source lang-java linenums">package com.qart.ploticalparties.dto;
+
+import java.util.Objects;
+
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
+<span class="fc" id="L13">public class PoliticalPartyDto {</span>
+     @NotNull 
+     @Min(value=1,message=&quot;politicalPartyId can not be negative&quot;)
+    private Long politicalPartyId;
+    
+    @NotEmpty
+    @NotNull(message=&quot;partyName is mandate&quot;)
+	@Length(min = 5, max = 100)
+    private String partyName;
+    
+    @NotEmpty
+    @NotNull(message=&quot;founderName is mandate&quot;)
+	@Length(min = 5, max = 100)
+    private String founderName;
+    
+    
+    @NotNull(message=&quot;foundation Year is mandate&quot;)
+     @Min(value=1900)    
+    @Max(value=2040)
+    private Integer firstYear;
+    
+
+
+	public Long getPoliticalPartyId() {
+<span class="fc" id="L37">		return politicalPartyId;</span>
+	}
+
+	public void setPoliticalPartyId(Long partyId) {
+<span class="fc" id="L41">		this.politicalPartyId = partyId;</span>
+<span class="fc" id="L42">	}</span>
+
+	public String getPartyName() {
+<span class="fc" id="L45">		return partyName;</span>
+	}
+
+	public void setPartyName(String partyName) {
+<span class="fc" id="L49">		this.partyName = partyName;</span>
+<span class="fc" id="L50">	}</span>
+
+	public Integer getFirstYear() {
+<span class="fc" id="L53">		return firstYear;</span>
+	}
+
+	public void setFirstYear(Integer foundationYear) {
+<span class="fc" id="L57">		this.firstYear = foundationYear;</span>
+<span class="fc" id="L58">	}</span>
+
+	public String getFounderName() {
+<span class="fc" id="L61">		return founderName;</span>
+	}
+
+	public void setFounderName(String founderName) {
+<span class="fc" id="L65">		this.founderName = founderName;</span>
+<span class="fc" id="L66">	}</span>
+
+	@Override
+	public int hashCode() {
+<span class="nc" id="L70">		return Objects.hash(founderName, politicalPartyId, partyName,firstYear);</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">		if (this == obj)</span>
+<span class="nc" id="L76">			return true;</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">		if (obj == null)</span>
+<span class="nc" id="L78">			return false;</span>
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="nc" id="L80">			return false;</span>
+<span class="fc" id="L81">		PoliticalPartyDto other = (PoliticalPartyDto) obj;</span>
+<span class="pc bpc" id="L82" title="2 of 4 branches missed.">		return Objects.equals(founderName, other.founderName) &amp;&amp; Objects.equals(politicalPartyId, other.politicalPartyId)</span>
+<span class="pc bpc" id="L83" title="2 of 4 branches missed.">				&amp;&amp; Objects.equals(partyName, other.partyName)&amp;&amp; Objects.equals(firstYear,other.firstYear);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

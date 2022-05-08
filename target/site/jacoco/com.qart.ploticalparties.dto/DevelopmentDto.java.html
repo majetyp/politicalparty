@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DevelopmentDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">politician-ratings</a> &gt; <a href="index.source.html" class="el_package">com.qart.ploticalparties.dto</a> &gt; <span class="el_source">DevelopmentDto.java</span></div><h1>DevelopmentDto.java</h1><pre class="source lang-java linenums">package com.qart.ploticalparties.dto;
+
+import java.util.Objects;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
+<span class="fc" id="L12">public class DevelopmentDto {</span>
+    
+    @NotNull
+    private Long developmentId;
+    
+    @NotNull
+    private Long politicalLeaderId;
+    
+    @NotNull
+	 @Length(min = 3, max = 100)     
+    private String title;
+    
+    @NotNull
+	 @Length(min = 3, max = 100)     
+    private String activity;
+
+     @NotNull
+	 @Length(min = 3, max = 100)     
+    private String budget;
+    
+    @NotNull
+	 @Length(min = 3, max = 100)     
+	private String state;
+
+    @NotNull
+	 @Min(value=1)    
+     @Max(value=12)
+        private Integer activityMonth;
+    
+    @NotNull
+     @Min(value=2021)    
+     @Max(value=2040)
+	private Integer activityYear;
+
+	public Long getDevelopmentId() {
+<span class="fc" id="L47">		return developmentId;</span>
+	}
+
+	public void setDevelopmentId(Long developmentId) {
+<span class="fc" id="L51">		this.developmentId = developmentId;</span>
+<span class="fc" id="L52">	}</span>
+
+	public Long getPoliticalLeaderId() {
+<span class="fc" id="L55">		return politicalLeaderId;</span>
+	}
+
+	public void setPoliticalLeaderId(Long candidateId) {
+<span class="fc" id="L59">		this.politicalLeaderId = candidateId;</span>
+<span class="fc" id="L60">	}</span>
+
+	public String getTitle() {
+<span class="fc" id="L63">		return title;</span>
+	}
+
+	public void setTitle(String title) {
+<span class="fc" id="L67">		this.title = title;</span>
+<span class="fc" id="L68">	}</span>
+
+	public String getActivity() {
+<span class="fc" id="L71">		return activity;</span>
+	}
+
+	public void setActivity(String activity) {
+<span class="fc" id="L75">		this.activity = activity;</span>
+<span class="fc" id="L76">	}</span>
+
+	public String getBudget() {
+<span class="fc" id="L79">		return budget;</span>
+	}
+
+	public void setBudget(String budget) {
+<span class="fc" id="L83">		this.budget = budget;</span>
+<span class="fc" id="L84">	}</span>
+
+	public String getState() {
+<span class="fc" id="L87">		return state;</span>
+	}
+
+	public void setState(String state) {
+<span class="fc" id="L91">		this.state = state;</span>
+<span class="fc" id="L92">	}</span>
+
+	public Integer getActivityMonth() {
+<span class="fc" id="L95">		return activityMonth;</span>
+	}
+
+	public void setActivityMonth(Integer activityMonth) {
+<span class="fc" id="L99">		this.activityMonth = activityMonth;</span>
+<span class="fc" id="L100">	}</span>
+
+	public Integer getActivityYear() {
+<span class="fc" id="L103">		return activityYear;</span>
+	}
+
+	public void setActivityYear(Integer activityYear) {
+<span class="fc" id="L107">		this.activityYear = activityYear;</span>
+<span class="fc" id="L108">	}</span>
+
+	@Override
+	public int hashCode() {
+<span class="nc" id="L112">		return Objects.hash(activity, activityMonth, activityYear, budget, politicalLeaderId, developmentId, state, title);</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		if (this == obj)</span>
+<span class="nc" id="L118">			return true;</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">		if (obj == null)</span>
+<span class="nc" id="L120">			return false;</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="nc" id="L122">			return false;</span>
+<span class="fc" id="L123">		DevelopmentDto other = (DevelopmentDto) obj;</span>
+<span class="pc bpc" id="L124" title="2 of 4 branches missed.">		return Objects.equals(activity, other.activity) &amp;&amp; Objects.equals(activityMonth, other.activityMonth)</span>
+<span class="pc bpc" id="L125" title="2 of 4 branches missed.">				&amp;&amp; Objects.equals(activityYear, other.activityYear) &amp;&amp; Objects.equals(budget, other.budget)</span>
+<span class="pc bpc" id="L126" title="2 of 4 branches missed.">				&amp;&amp; Objects.equals(politicalLeaderId, other.politicalLeaderId) &amp;&amp; Objects.equals(developmentId, other.developmentId)</span>
+<span class="pc bpc" id="L127" title="2 of 4 branches missed.">				&amp;&amp; Objects.equals(state, other.state) &amp;&amp; Objects.equals(title, other.title);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

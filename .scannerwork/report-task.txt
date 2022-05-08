@@ -1,0 +1,6 @@
+projectKey=kiranmaibezawada-2266410-2266409-1650445926353
+serverUrl=http://13.234.110.52:9000
+serverVersion=8.9.6.50800
+dashboardUrl=http://13.234.110.52:9000/dashboard?id=kiranmaibezawada-2266410-2266409-1650445926353
+ceTaskId=AYBgFFjpYfzQL2FCmYtQ
+ceTaskUrl=http://13.234.110.52:9000/api/ce/task?id=AYBgFFjpYfzQL2FCmYtQ

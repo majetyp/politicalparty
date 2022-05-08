@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PoliticalPartyServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">politician-ratings</a> &gt; <a href="index.source.html" class="el_package">com.qart.ploticalparties.service.impl</a> &gt; <span class="el_source">PoliticalPartyServiceImpl.java</span></div><h1>PoliticalPartyServiceImpl.java</h1><pre class="source lang-java linenums">package com.qart.ploticalparties.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.qart.ploticalparties.dto.PoliticalPartyDto;
+import com.qart.ploticalparties.entity.PoliticalParty;
+import com.qart.ploticalparties.exceptions.InvalidDataException;
+import com.qart.ploticalparties.exceptions.PoliticalPartyNotFoundException;
+import com.qart.ploticalparties.repository.PoliticalPartyRepository;
+import com.qart.ploticalparties.service.PoliticalPartyService;
+
+@Service
+<span class="nc" id="L21">public class PoliticalPartyServiceImpl implements PoliticalPartyService {</span>
+
+	@Autowired
+	private PoliticalPartyRepository politicalPartyRepository;
+
+    @Transactional
+	@Override
+	public PoliticalPartyDto registerParty(PoliticalPartyDto politicalPartyDto) {
+<span class="nc" id="L29">       	PoliticalParty politicalParty = new PoliticalParty(); </span>
+    
+      
+<span class="nc" id="L32">		BeanUtils.copyProperties(politicalPartyDto, politicalParty);</span>
+	   
+<span class="nc" id="L34">        politicalPartyRepository.save(politicalParty);</span>
+      
+<span class="nc" id="L36">      		return politicalPartyDto;</span>
+	}
+
+    @Transactional
+	@Override
+	public PoliticalPartyDto updateParty(PoliticalPartyDto politicalPartyDto) {
+<span class="nc" id="L42">       	PoliticalParty politicalParty = new PoliticalParty();</span>
+<span class="nc" id="L43">		BeanUtils.copyProperties(politicalPartyDto, politicalParty);</span>
+<span class="nc" id="L44">		politicalPartyRepository.save(politicalParty);</span>
+<span class="nc" id="L45">		return politicalPartyDto;</span>
+	}
+
+    @Transactional
+	@Override
+	public boolean deleteParty(Long partyId) {
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if(!politicalPartyRepository.existsById(partyId)){</span>
+<span class="nc" id="L52">            throw new PoliticalPartyNotFoundException(&quot;Partid does not exist&quot;)  ;  }</span>
+<span class="nc" id="L53">		PoliticalPartyDto politicalPartyDto = getPartyById(partyId);</span>
+<span class="nc" id="L54">		PoliticalParty politicalParty = new PoliticalParty();</span>
+<span class="nc" id="L55">		BeanUtils.copyProperties(politicalPartyDto, politicalParty);</span>
+<span class="nc" id="L56">		politicalPartyRepository.delete(politicalParty);</span>
+<span class="nc" id="L57">		return true;</span>
+	}
+
+	@Override
+	public PoliticalPartyDto getPartyById(Long partyId) {
+<span class="nc bnc" id="L62" title="All 2 branches missed.">          if(!politicalPartyRepository.existsById(partyId)){throw new PoliticalPartyNotFoundException(&quot;Partid does not exist&quot;)  ;  }</span>
+		
+<span class="nc" id="L64">		Optional&lt;PoliticalParty&gt; politicalParty = politicalPartyRepository.findById(partyId);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		if (politicalParty.isPresent()) {</span>
+<span class="nc" id="L66">			PoliticalPartyDto politicalPartyDto = new PoliticalPartyDto();</span>
+<span class="nc" id="L67">			BeanUtils.copyProperties(politicalParty.get(), politicalPartyDto);</span>
+<span class="nc" id="L68">			return politicalPartyDto;</span>
+		} else {
+<span class="nc" id="L70">			throw new PoliticalPartyNotFoundException(&quot;Party with Id &quot; + partyId + &quot; not found&quot;);</span>
+		}
+	}
+
+	@Override
+	public List&lt;PoliticalPartyDto&gt; getAllParties() {
+<span class="nc" id="L76">		List&lt;PoliticalParty&gt; politicalParties = politicalPartyRepository.findAll();</span>
+<span class="nc" id="L77">		List&lt;PoliticalPartyDto&gt; politicalPartyDtos = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		for (PoliticalParty politicalParty : politicalParties) {</span>
+<span class="nc" id="L79">			PoliticalPartyDto politicalPartyDto = new PoliticalPartyDto();</span>
+<span class="nc" id="L80">			BeanUtils.copyProperties(politicalParty, politicalPartyDto);</span>
+<span class="nc" id="L81">			politicalPartyDtos.add(politicalPartyDto);</span>
+		}
+<span class="nc" id="L83">		return politicalPartyDtos;</span>
+	}
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

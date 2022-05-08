@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PoliticalParty.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">politician-ratings</a> &gt; <a href="index.source.html" class="el_package">com.qart.ploticalparties.entity</a> &gt; <span class="el_source">PoliticalParty.java</span></div><h1>PoliticalParty.java</h1><pre class="source lang-java linenums">package com.qart.ploticalparties.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = &quot;politicalparty&quot;)
+<span class="nc" id="L12">public class PoliticalParty {</span>
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private Long politicalPartyId;
+
+	@Column
+	private String partyName;
+
+	@Column
+	private String founderName;
+
+	@Column
+	private Integer firstYear;
+
+	public Long getPoliticalPartyId() {
+<span class="nc" id="L29">		return politicalPartyId;</span>
+	}
+
+	public void setPoliticalPartyId(Long partyId) {
+<span class="nc" id="L33">		this.politicalPartyId = partyId;</span>
+<span class="nc" id="L34">	}</span>
+
+	public String getPartyName() {
+<span class="nc" id="L37">		return partyName;</span>
+	}
+
+	public void setPartyName(String partyName) {
+<span class="nc" id="L41">		this.partyName = partyName;</span>
+<span class="nc" id="L42">	}</span>
+
+	public String getFounderName() {
+<span class="nc" id="L45">		return founderName;</span>
+	}
+
+	public void setFounderName(String founderName) {
+<span class="nc" id="L49">		this.founderName = founderName;</span>
+<span class="nc" id="L50">	}</span>
+
+	public void setFirstYear(Integer firstYear) {
+<span class="nc" id="L53">		this.firstYear = firstYear;</span>
+<span class="nc" id="L54">	}</span>
+
+	public Integer getFirstYear() {
+<span class="nc" id="L57">		return firstYear;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DevelopmentServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">politician-ratings</a> &gt; <a href="index.source.html" class="el_package">com.qart.ploticalparties.service.impl</a> &gt; <span class="el_source">DevelopmentServiceImpl.java</span></div><h1>DevelopmentServiceImpl.java</h1><pre class="source lang-java linenums">package com.qart.ploticalparties.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.qart.ploticalparties.dto.DevelopmentDto;
+import com.qart.ploticalparties.entity.Development;
+import com.qart.ploticalparties.exceptions.DevelopmentNotFoundException;
+import com.qart.ploticalparties.repository.DevelopmentRepository;
+import com.qart.ploticalparties.service.DevelopmentService;
+
+@Service
+<span class="nc" id="L21">public class DevelopmentServiceImpl implements DevelopmentService {</span>
+
+	@Autowired
+	private DevelopmentRepository repository;
+
+	@Override
+	public DevelopmentDto createDevelopment(DevelopmentDto developmentDto) {
+<span class="nc bnc" id="L28" title="All 2 branches missed.">		if(developmentDto!=null){	</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if(repository.existsById(developmentDto.getDevelopmentId())){throw new DevelopmentNotFoundException(&quot;Development with Id &quot;+developmentDto.getDevelopmentId()+&quot;  already exist&quot;);}</span>
+<span class="nc" id="L30">        Development development=new Development();</span>
+       
+<span class="nc" id="L32">        BeanUtils.copyProperties(developmentDto,development);</span>
+<span class="nc" id="L33">        repository.save(development);</span>
+    }
+<span class="nc" id="L35">		return developmentDto;</span>
+    }
+	
+    @Transactional 
+	@Override
+	public DevelopmentDto updateDevelopment(DevelopmentDto developmentDto) {
+<span class="nc bnc" id="L41" title="All 2 branches missed.">    if(developmentDto!=null){	</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if(!repository.existsById(developmentDto.getDevelopmentId())){throw new DevelopmentNotFoundException(&quot;Development with Id &quot;+developmentDto.getDevelopmentId()+&quot;  Does not exist&quot;);}</span>
+<span class="nc" id="L43">        Development development=new Development();</span>
+<span class="nc" id="L44">        BeanUtils.copyProperties(developmentDto,development);</span>
+<span class="nc" id="L45">        repository.save(development);</span>
+    }
+<span class="nc" id="L47">		return developmentDto;</span>
+    }
+    
+    @Transactional  
+	@Override
+	public boolean deleteDevelopment(Long developmentId) {
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        if(!repository.existsById(developmentId)){</span>
+<span class="nc" id="L54">            throw new DevelopmentNotFoundException(&quot;Developmentid#&quot;+developmentId+&quot; does not exists&quot;);</span>
+        }
+<span class="nc" id="L56">        DevelopmentDto developmentById=getDevelopmentById(developmentId);</span>
+<span class="nc" id="L57">        Development development=new Development();</span>
+<span class="nc" id="L58">        BeanUtils.copyProperties(developmentById, development);</span>
+<span class="nc" id="L59">        repository.delete(development);</span>
+<span class="nc" id="L60">		return true;</span>
+	}
+
+	@Override
+	public DevelopmentDto getDevelopmentById(Long developmentId) {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">         if(!repository.existsById(developmentId)) {</span>
+<span class="nc" id="L66">			throw new DevelopmentNotFoundException(&quot;Developmentid#&quot;+developmentId+&quot; does not exists&quot;);</span>
+        }
+<span class="nc" id="L68">        Optional&lt;Development&gt; development = repository.findById(developmentId);</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if(development.isPresent()){</span>
+<span class="nc" id="L70">           DevelopmentDto developmentDto=new DevelopmentDto(); </span>
+<span class="nc" id="L71">           BeanUtils.copyProperties(development.get(), developmentDto);</span>
+<span class="nc" id="L72">           return developmentDto;</span>
+        }else{
+<span class="nc" id="L74">            throw new DevelopmentNotFoundException(&quot;Development with id&quot;+developmentId+&quot; Not found&quot;);</span>
+        }
+		
+	}
+
+	@Override
+	public List&lt;DevelopmentDto&gt; getAllDevelopments() {
+<span class="nc" id="L81">        List&lt;Development&gt; developments = repository.findAll();</span>
+<span class="nc" id="L82">		List&lt;DevelopmentDto&gt; developmentDtos = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">		for (Development dev : developments) {</span>
+<span class="nc" id="L84">			DevelopmentDto developmentDto = new DevelopmentDto();</span>
+<span class="nc" id="L85">			BeanUtils.copyProperties(dev, developmentDto);</span>
+<span class="nc" id="L86">			developmentDtos.add(developmentDto);</span>
+		}
+<span class="nc" id="L88">		return developmentDtos;</span>
+	}
+
+	@Override
+	public List&lt;DevelopmentDto&gt; getAllDevelopmentsByLeaderId(Long politicalLeaderId) {
+<span class="nc" id="L93">        List&lt;Development&gt; developments = repository.findByPoliticalLeaderId(politicalLeaderId);</span>
+<span class="nc" id="L94">        List&lt;DevelopmentDto&gt; developmentDtos = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        for (Development dev : developments) {</span>
+<span class="nc" id="L96">			DevelopmentDto developmentDto = new DevelopmentDto();</span>
+<span class="nc" id="L97">            BeanUtils.copyProperties(dev, developmentDto);</span>
+<span class="nc" id="L98">            developmentDtos.add(developmentDto);}</span>
+<span class="nc" id="L99">		return developmentDtos;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

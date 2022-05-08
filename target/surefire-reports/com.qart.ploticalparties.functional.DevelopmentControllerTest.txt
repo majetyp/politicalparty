@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.qart.ploticalparties.functional.DevelopmentControllerTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.412 s - in com.qart.ploticalparties.functional.DevelopmentControllerTest
