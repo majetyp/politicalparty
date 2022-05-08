@@ -20,7 +20,7 @@ import com.qart.ploticalparties.repository.PoliticalLeaderRepository;
 import com.qart.ploticalparties.service.PoliticalLeaderService;
 
 @Service
-<span class="nc" id="L23">public class PoliticalLeaderServiceImpl implements PoliticalLeaderService {</span>
+<span class="fc" id="L23">public class PoliticalLeaderServiceImpl implements PoliticalLeaderService {</span>
 
 	@Autowired
 	private PoliticalLeaderRepository repository;
@@ -28,28 +28,28 @@ import com.qart.ploticalparties.service.PoliticalLeaderService;
     
 	@Override
 	public PoliticalLeaderDto registerPoliticalLeader(PoliticalLeaderDto leaderDto) { 
-<span class="nc bnc" id="L31" title="All 2 branches missed.">         if(leaderDto!=null) {</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">         if(leaderDto!=null) {</span>
 			//if(!repository.existsById(leaderDto.getPoliticalLeaderId())) {
 			//	throw new PoliticalLeaderNotFoundException(&quot;PoliticalLeaderId#&quot;+leaderDto.getPoliticalLeaderId()+&quot; does not exists&quot;);
           //  }               
-<span class="nc" id="L35">		PoliticalLeader politicalLeader = new PoliticalLeader();</span>
-<span class="nc" id="L36">		BeanUtils.copyProperties(leaderDto, politicalLeader);</span>
-<span class="nc" id="L37">        repository.save(politicalLeader);</span>
+<span class="fc" id="L35">		PoliticalLeader politicalLeader = new PoliticalLeader();</span>
+<span class="fc" id="L36">		BeanUtils.copyProperties(leaderDto, politicalLeader);</span>
+<span class="fc" id="L37">        repository.save(politicalLeader);</span>
     }
-<span class="nc" id="L39">		return leaderDto;</span>
+<span class="fc" id="L39">		return leaderDto;</span>
 	}
 
     @Transactional
 	@Override
 	public PoliticalLeaderDto updatePoliticalLeader(PoliticalLeaderDto leaderDto) {
-<span class="nc bnc" id="L45" title="All 2 branches missed.">        if(leaderDto!=null) {</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">			if(!repository.existsById(leaderDto.getPoliticalLeaderId())) {</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if(leaderDto!=null) {</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">			if(!repository.existsById(leaderDto.getPoliticalLeaderId())) {</span>
 <span class="nc" id="L47">				throw new InvalidDataException(&quot;getPoliticalLeaderId#&quot;+leaderDto.getPoliticalLeaderId()+&quot; does not exists&quot;);</span>
             }
-<span class="nc" id="L49">		PoliticalLeader politicalLeader = new PoliticalLeader();</span>
-<span class="nc" id="L50">		BeanUtils.copyProperties(leaderDto, politicalLeader);</span>
-<span class="nc" id="L51">		repository.save(politicalLeader);}</span>
-<span class="nc" id="L52">		return leaderDto;</span>
+<span class="fc" id="L49">		PoliticalLeader politicalLeader = new PoliticalLeader();</span>
+<span class="fc" id="L50">		BeanUtils.copyProperties(leaderDto, politicalLeader);</span>
+<span class="fc" id="L51">		repository.save(politicalLeader);}</span>
+<span class="fc" id="L52">		return leaderDto;</span>
 	}
 
     @Transactional
@@ -83,14 +83,14 @@ import com.qart.ploticalparties.service.PoliticalLeaderService;
 
 	@Override
 	public List&lt;PoliticalLeaderDto&gt; getAllPoliticalLeaders() {
-<span class="nc" id="L86">		List&lt;PoliticalLeader&gt; politicalLeaders = repository.findAll();</span>
-<span class="nc" id="L87">		List&lt;PoliticalLeaderDto&gt; politicalLeaderDtos = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L88" title="All 2 branches missed.">		for (PoliticalLeader leader : politicalLeaders) {</span>
+<span class="fc" id="L86">		List&lt;PoliticalLeader&gt; politicalLeaders = repository.findAll();</span>
+<span class="fc" id="L87">		List&lt;PoliticalLeaderDto&gt; politicalLeaderDtos = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		for (PoliticalLeader leader : politicalLeaders) {</span>
 <span class="nc" id="L89">			PoliticalLeaderDto politicalLeaderDto = new PoliticalLeaderDto();</span>
 <span class="nc" id="L90">			BeanUtils.copyProperties(leader, politicalLeaderDto);</span>
 <span class="nc" id="L91">			politicalLeaderDtos.add(politicalLeaderDto);</span>
 		}
-<span class="nc" id="L93">		return politicalLeaderDtos;</span>
+<span class="fc" id="L93">		return politicalLeaderDtos;</span>
 	}
 
 	@Override

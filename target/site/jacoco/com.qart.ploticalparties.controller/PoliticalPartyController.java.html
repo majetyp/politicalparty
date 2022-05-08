@@ -56,17 +56,16 @@ import com.qart.ploticalparties.service.PoliticalPartyService;
 
 	}
 
-	@GetMapping(&quot;/{partyId}&quot;)
-	public ResponseEntity&lt;PoliticalPartyDto&gt; getPartyById(@PathVariable(&quot;partyId&quot;) Long partyId) {
-<span class="fc" id="L61">		PoliticalPartyDto politicalPartyDto = politicalPartyService.getPartyById(partyId);</span>
-<span class="fc" id="L62">		return ResponseEntity.ok(politicalPartyDto);</span>
-	}
-
-	@GetMapping
-	public ResponseEntity&lt;List&lt;PoliticalPartyDto&gt;&gt; getAllParties() {
-<span class="fc" id="L67">		List&lt;PoliticalPartyDto&gt; politicalPartyDtos = politicalPartyService.getAllParties();</span>
-<span class="fc" id="L68">		return ResponseEntity.ok(politicalPartyDtos);</span>
-	}
-
+	
+	  @GetMapping(&quot;/{partyId}&quot;) public ResponseEntity&lt;PoliticalPartyDto&gt;
+	  getPartyById(@PathVariable(&quot;partyId&quot;) Long partyId) { PoliticalPartyDto
+<span class="fc" id="L62">	  politicalPartyDto = politicalPartyService.getPartyById(partyId); return</span>
+<span class="fc" id="L63">	  ResponseEntity.ok(politicalPartyDto); }</span>
+	  
+	  @GetMapping public ResponseEntity&lt;List&lt;PoliticalPartyDto&gt;&gt; getAllParties() {
+<span class="fc" id="L66">	  List&lt;PoliticalPartyDto&gt; politicalPartyDtos =</span>
+<span class="fc" id="L67">	  politicalPartyService.getAllParties(); return</span>
+<span class="fc" id="L68">	  ResponseEntity.ok(politicalPartyDtos); }</span>
+	 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

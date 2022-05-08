@@ -114,8 +114,8 @@ public class PoliticalPartyControllerTest {
 		when(this.partyService.getAllParties()).then(new Answer<List<PoliticalPartyDto>>() {
 
 			@Override
-			public List<PoliticalPartyDto> answer(InvocationOnMock invocation) throws Throwable {
-				// TODO Auto-generated method stub
+			public List<PoliticalPartyDto> answer(InvocationOnMock invocation) throws Throwable { // TODO Auto-generated
+																									// method stub
 				count[0]++;
 				return politicalPartyDtos;
 			}
@@ -128,7 +128,7 @@ public class PoliticalPartyControllerTest {
 		myAssert(currentTest(), count[0] == 1 ? true : false, businessTestFile);
 
 	}
-	
+
 	@Test
 	public void testGetPoliticalPartyById() throws Exception {
 		PoliticalPartyDto politicalPartyDto = MasterData.getPartyDto();
@@ -153,8 +153,8 @@ public class PoliticalPartyControllerTest {
 		when(this.partyService.getPartyById(1L)).then(new Answer<PoliticalPartyDto>() {
 
 			@Override
-			public PoliticalPartyDto answer(InvocationOnMock invocation) throws Throwable {
-				// TODO Auto-generated method stub
+			public PoliticalPartyDto answer(InvocationOnMock invocation) throws Throwable { // TODO Auto-generated
+																							// method stub
 				count[0]++;
 				return politicalPartyDto;
 			}
@@ -167,7 +167,6 @@ public class PoliticalPartyControllerTest {
 		myAssert(currentTest(), count[0] == 1 ? true : false, businessTestFile);
 
 	}
-
 
 	@Test
 	public void testUpdatePoliticalParty() throws Exception {

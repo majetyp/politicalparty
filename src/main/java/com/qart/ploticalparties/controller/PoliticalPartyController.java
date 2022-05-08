@@ -56,16 +56,15 @@ public class PoliticalPartyController {
 
 	}
 
-	@GetMapping("/{partyId}")
-	public ResponseEntity<PoliticalPartyDto> getPartyById(@PathVariable("partyId") Long partyId) {
-		PoliticalPartyDto politicalPartyDto = politicalPartyService.getPartyById(partyId);
-		return ResponseEntity.ok(politicalPartyDto);
-	}
-
-	@GetMapping
-	public ResponseEntity<List<PoliticalPartyDto>> getAllParties() {
-		List<PoliticalPartyDto> politicalPartyDtos = politicalPartyService.getAllParties();
-		return ResponseEntity.ok(politicalPartyDtos);
-	}
-
+	
+	  @GetMapping("/{partyId}") public ResponseEntity<PoliticalPartyDto>
+	  getPartyById(@PathVariable("partyId") Long partyId) { PoliticalPartyDto
+	  politicalPartyDto = politicalPartyService.getPartyById(partyId); return
+	  ResponseEntity.ok(politicalPartyDto); }
+	  
+	  @GetMapping public ResponseEntity<List<PoliticalPartyDto>> getAllParties() {
+	  List<PoliticalPartyDto> politicalPartyDtos =
+	  politicalPartyService.getAllParties(); return
+	  ResponseEntity.ok(politicalPartyDtos); }
+	 
 }

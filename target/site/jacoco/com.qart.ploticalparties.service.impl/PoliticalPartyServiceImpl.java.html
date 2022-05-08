@@ -18,7 +18,7 @@ import com.qart.ploticalparties.repository.PoliticalPartyRepository;
 import com.qart.ploticalparties.service.PoliticalPartyService;
 
 @Service
-<span class="nc" id="L21">public class PoliticalPartyServiceImpl implements PoliticalPartyService {</span>
+<span class="fc" id="L21">public class PoliticalPartyServiceImpl implements PoliticalPartyService {</span>
 
 	@Autowired
 	private PoliticalPartyRepository politicalPartyRepository;
@@ -26,14 +26,14 @@ import com.qart.ploticalparties.service.PoliticalPartyService;
     @Transactional
 	@Override
 	public PoliticalPartyDto registerParty(PoliticalPartyDto politicalPartyDto) {
-<span class="nc" id="L29">       	PoliticalParty politicalParty = new PoliticalParty(); </span>
+<span class="fc" id="L29">       	PoliticalParty politicalParty = new PoliticalParty(); </span>
     
       
-<span class="nc" id="L32">		BeanUtils.copyProperties(politicalPartyDto, politicalParty);</span>
+<span class="fc" id="L32">		BeanUtils.copyProperties(politicalPartyDto, politicalParty);</span>
 	   
-<span class="nc" id="L34">        politicalPartyRepository.save(politicalParty);</span>
+<span class="fc" id="L34">        politicalPartyRepository.save(politicalParty);</span>
       
-<span class="nc" id="L36">      		return politicalPartyDto;</span>
+<span class="fc" id="L36">      		return politicalPartyDto;</span>
 	}
 
     @Transactional
@@ -73,14 +73,14 @@ import com.qart.ploticalparties.service.PoliticalPartyService;
 
 	@Override
 	public List&lt;PoliticalPartyDto&gt; getAllParties() {
-<span class="nc" id="L76">		List&lt;PoliticalParty&gt; politicalParties = politicalPartyRepository.findAll();</span>
-<span class="nc" id="L77">		List&lt;PoliticalPartyDto&gt; politicalPartyDtos = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L78" title="All 2 branches missed.">		for (PoliticalParty politicalParty : politicalParties) {</span>
+<span class="fc" id="L76">		List&lt;PoliticalParty&gt; politicalParties = politicalPartyRepository.findAll();</span>
+<span class="fc" id="L77">		List&lt;PoliticalPartyDto&gt; politicalPartyDtos = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">		for (PoliticalParty politicalParty : politicalParties) {</span>
 <span class="nc" id="L79">			PoliticalPartyDto politicalPartyDto = new PoliticalPartyDto();</span>
 <span class="nc" id="L80">			BeanUtils.copyProperties(politicalParty, politicalPartyDto);</span>
 <span class="nc" id="L81">			politicalPartyDtos.add(politicalPartyDto);</span>
 		}
-<span class="nc" id="L83">		return politicalPartyDtos;</span>
+<span class="fc" id="L83">		return politicalPartyDtos;</span>
 	}
 
 

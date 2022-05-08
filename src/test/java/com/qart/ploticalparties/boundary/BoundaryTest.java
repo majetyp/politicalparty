@@ -331,5 +331,36 @@ public class BoundaryTest {
 		Set<ConstraintViolation<DevelopmentDto>> violations = validator.validate(developmentDto);
 		myAssert(currentTest(), !violations.isEmpty() ? true : false, boundaryTestFile);
 	}
+	
+	
+	@Test
+	public void testPartyFoundationYearMin() throws Exception {
+		PoliticalPartyDto partyDto = MasterData.getPartyDto();
+
+		partyDto.setFirstYear(1857);
+		Set<ConstraintViolation<PoliticalPartyDto>> violations = validator.validate(partyDto);
+		myAssert(currentTest(), !violations.isEmpty() ? true : false, boundaryTestFile);
+	}
+	
+	@Test
+	public void testPartyFoundationYearMax() throws Exception {
+		PoliticalPartyDto partyDto = MasterData.getPartyDto();
+
+		partyDto.setFirstYear(2050);
+		Set<ConstraintViolation<PoliticalPartyDto>> violations = validator.validate(partyDto);
+		myAssert(currentTest(), !violations.isEmpty() ? true : false, boundaryTestFile);
+	}
+	
+	@Test
+	public void testPartyFoundationYearNotNull() throws Exception {
+		PoliticalPartyDto partyDto = MasterData.getPartyDto();
+
+		partyDto.setFirstYear(null);
+		Set<ConstraintViolation<PoliticalPartyDto>> violations = validator.validate(partyDto);
+		myAssert(currentTest(), !violations.isEmpty() ? true : false, boundaryTestFile);
+		
+	}
+
+
 
 }
