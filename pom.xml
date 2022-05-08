@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.qart.ploticalparties</groupId>
-	<artifactId>politician-ratings</artifactId>
+	<artifactId>political-parties</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Political Parties</description>
 	<properties>
-		<java.version>11</java.version>
+		<!--<java.version>11</java.version> -->
 		<!-- Jacoco Properties -->
 		<jacoco.version>0.8.7</jacoco.version>
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
